@@ -35,4 +35,12 @@ public class DefaultAccountDao implements AccountDao {
                         .collect(Collectors.toList());
     }
 
+    @Override
+    public void withdraw(Account account, BigDecimal amount) {
+        accounts.stream()
+                .filter(a -> a.getId().equals(account.getId()))
+                .findFirst()
+                .get()
+                .subtractAmount(amount);
+    }
 }

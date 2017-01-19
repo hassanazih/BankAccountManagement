@@ -37,6 +37,24 @@ public class DefaultAccountService implements AccountService {
         dao.deposit(find(accountNumber), amount);
     }
 
+    @Override
+    public void withdraw(BigInteger accountNumber, BigDecimal amount) {
+        validateAccountNumber(accountNumber);
+        validatePositiveAmount(amount);
+
+        Account account = find(accountNumber);
+        validateRemainingBalance(amount,account);
+        dao.withdraw(find(accountNumber), amount);
+    }
+
+    private void validateRemainingBalance(BigDecimal amount, Account account) {
+        if(amount.compareTo(account.getBalance()) > 0)
+        {
+            throw new AccountException(AccountException.AccountError.AVAILABLE_BALANCE_IS_INSUFFICIENT);
+        }
+    }
+
+
     private void validateAccountNumber( BigInteger accountNumber) {
         if (accountNumber == null) {
             throw new IllegalArgumentException("There is no account identified by " + accountNumber);

@@ -10,5 +10,6 @@ public interface AccountService {
 
     void deposit(BigInteger accountNumber, BigDecimal amount);
     void add(Account account);
-  
+    Account find(BigInteger accountNumber);
+    void withdraw(BigInteger accountNumber, BigDecimal amount);
 }

@@ -12,6 +12,14 @@ Because i'm a craftmanship, i used to work with my product owner, clients and bu
 
 I'm a fan of cucumber (coupled with juint or selenium), so i used it to do my unit tests.
 
+# Branching
+
+Each feature is realized on a separate branch. In the end of each user story, and to be full compliant with the definition of done, the feature branch should be merged with integration branch and new tag should be created.
+
+# Logging using Spring AOP & AspectJ
+
+Because logging is one of the most important functionalities of an entreprise application, i used slf4j and aop to keep trace of each method execution.
+
 # Conclusion
 
 I think that the principal purpose of this kata is just to evaluate the working way of candidates. So i didn't create a real repository for account (even if i used some spring core annotations), nor web frontend.

@@ -11,4 +11,5 @@ public interface AccountDao {
     void deposit(Account account, BigDecimal amount);
     void add(Account account);
     List<Account> find(BigInteger accountNumber);
+    void withdraw(Account account, BigDecimal amount);
 }
